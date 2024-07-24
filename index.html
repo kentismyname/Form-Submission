@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bb5f008548.js" crossorigin="anonymous"></script>
+    <style>
+        /* Ensure the body and html take up the full height */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .full-height {
+            height: 300vh;
+        }
+        .form-label {
+            font-weight: bold;
+            font-size: 1.1rem; /* Slightly larger font size */
+            text-align: center; /* Center align text */
+        }
+        /*Send Button*/
+        .button-container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Adjust the spacing between the buttons */
+        }
+
+        .button {
+            position: relative;
+            width: 140px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 1px solid #cc0000;
+            background-color: #e50000;
+            overflow: hidden;
+        }
+
+        .button, .button__icon, .button__text {
+            transition: all 0.3s;
+        }
+
+        .button .button__text {
+            transform: translateX(35px);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .button .button__icon {
+            position: absolute;
+            transform: translateX(109px);
+            height: 100%;
+            width: 39px;
+            background-color: #cc0000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button .svg {
+            width: 20px;
+        }
+
+        .button:hover {
+            background: #cc0000;
+        }
+
+        .button:hover .button__text {
+            color: transparent;
+        }
+
+        .button:hover .button__icon {
+            width: 148px;
+            transform: translatey(0);
+        }
+
+        .button:active .button__icon {
+            background-color: #b20000;
+        }
+
+        .button:active {
+            border: 1px solid #b20000;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 20px;
+            background: royalblue;
+            color: white;
+            padding: 0.7em 1em;
+            padding-left: 0.9em;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        button span {
+            display: block;
+            margin-left: 0.3em;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button svg {
+            display: block;
+            transform-origin: center center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        button:hover .svg-wrapper {
+            animation: fly-1 0.6s ease-in-out infinite alternate;
+        }
+
+        button:hover svg {
+            transform: translateX(1.2em) rotate(45deg) scale(1.1);
+        }
+
+        button:hover span {
+            transform: translateX(5em);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fly-1 {
+            from {
+                transform: translateY(0.1em);
+            }
+
+            to {
+                transform: translateY(-0.1em);
+            }
+        }
+          
+          
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center full-height">
+    <main class="container bg-light p-5 rounded">
+        <h1 class="my-4 text-center bg-info">HCS_ACQ</h1>
+        <form id="contact-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Agent Name:</label>
+                <input type="text" class="form-control" id="name" name="Agent Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="disposition" class="form-label">DISPOSITION:</label>
+                <select class="form-select" id="disposition" name="DISPOSITION" required>
+                    <option value="">Select Disposition</option>
+                    <option value="CS">CS</option>
+                    <option value="PCS">PCS</option>
+                    <option value="NCS">NCS</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Permanent in AUS" class="form-label">Permanent in AUS:</label>
+                <input type="text" class="form-control" id="Permanent in AUS" name="Permanent in AUS" required>
+            </div>
+            <div class="mb-3">
+                <label for="First name" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="First name" name="First Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="Last name" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="Last name" name="Last Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="Age" class="form-label">Age:</label>
+                <select class="form-select" id="age" name="Age" required>
+                    <option value="">Select</option>
+                    <option value="18-24">18-24</option>
+                    <option value="25-29">25-29</option>
+                    <option value="30-34">30-34</option>
+                    <option value="35-39">35-39</option>
+                    <option value="40-44">40-44</option>
+                    <option value="45-49">45-49</option>
+                    <option value="50-54">50-54</option>
+                    <option value="55-59">55-59</option>
+                    <option value="60-64">60-64</option>
+                    <option value="65-69">65-69</option>
+                    <option value="70-75">70-75</option>
+                    <option value="76-79">76-79</option>
+                    <option value="80-84">80-84</option>
+                    <option value="85+">85+</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Postcode" class="form-label">Postcode:</label>
+                <input type="text" class="form-control" id="Postcode" name="Postcode" required>
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Address:</label>
+                <textarea class="form-control" id="Address" name="Address" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="State" class="form-label">State:</label>
+                <textarea class="form-control" id="State" name="State" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="Tel. Number" class="form-label">Tel. Number:</label>
+                <textarea class="form-control" id="Tel. Number" name="Tel. Number"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="Email Address" class="form-label">Email Address:</label>
+                <input type="email" class="form-control" id="Email Address" name="Email Address" required>
+            </div>
+            <div class="mb-3">
+                <label for="Home Status" class="form-label">Home Status:</label>
+                <select class="form-select" id="Home Status" name="Home Status" required>
+                    <option value="">Select</option>
+                    <option value="Home Owner">Home Owner</option>
+                    <option value="Renter">Renter</option>
+                    <option value="Living with Family">Living with Family</option>
+                    <option value="Living in a Facility">Living in a Facility</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Employment Status" class="form-label">Employment Status:</label>
+                <select class="form-select" id="Employment Status" name="Employment Status" required>
+                    <option value="">Select</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Pensioner">Pensioner</option>
+                    <option value="Retired">Retired</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="NHC 1" class="form-label">NHC 1:</label>
+                <select class="form-select" id="NHC 1" name="NHC 1" required>
+                    <option value="">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="NHC 2" class="form-label">NHC 2:</label>
+                <select class="form-select" id="NHC 2" name="NHC 2" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Health Deals 1" class="form-label">Health Deals 1:</label>
+                <select class="form-select" id="Health Deals 1" name="Health Deals 1" required>
+                    <option value="">Select</option>
+                    <option value="Not Answered">Not Answered</option>
+                    <option value="AHM">AHM</option>
+                    <option value="AIA Health Insurance">AIA Health Insurance</option>
+                    <option value="Australian Unity">Australian Unity</option>
+                    <option value="Bupa">Bupa</option>
+                    <option value="CBHS Corporate Health">CBHS Corporate Health</option>
+                    <option value="CBHS Health Fund">CBHS Health Fund</option>
+                    <option value="CUA Health">CUA Health</option>
+                    <option value="Defence Health">Defence Health</option>
+                    <option value="Doctor's Health Fund">Doctor's Health Fund</option>
+                    <option value="GMHBA">GMHBA</option>
+                    <option value="HBF Health">HBF Health</option>
+                    <option value="HCF">HCF</option>
+                    <option value="HCI">HCI</option>
+                    <option value="HIF">HIF</option>
+                    <option value="Medibank Private">Medibank Private</option>
+                    <option value="NIB">NIB</option>
+                    <option value="Not in the list">Not in the list</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Health Deals 2" class="form-label">Health Deals 2:</label>
+                <select class="form-select" id="Health Deals 2" name="Health Deals 2" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Blooms 1" class="form-label">Blooms 1:</label>
+                <select class="form-select" id="Blooms 1" name="Blooms 1" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Blooms 2" class="form-label">Blooms 2:</label>
+                <select class="form-select" id="Blooms 2" name="Blooms 2" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Blooms 3" class="form-label">Blooms 3:</label>
+                <select class="form-select" id="Blooms 3" name="Blooms 3" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Blooms 4" class="form-label">Blooms 4:</label>
+                <select class="form-select" id="Blooms 4" name="Blooms 4" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Blooms 5" class="form-label">Blooms 5:</label>
+                <select class="form-select" id="Blooms 5" name="Blooms 5" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Blooms Triage 2" class="form-label">Blooms Triage 2:</label>
+                <select class="form-select" id="Blooms Triage 2" name="Blooms Triage 2" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Cancer Charity" class="form-label">Cancer Charity:</label>
+                <select class="form-select" id="Cancer Charity" name="Cancer Charity" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Children Charity" class="form-label">Children Charity:</label>
+                <select class="form-select" id="Children Charity" name="Children Charity" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Fred Hollows" class="form-label">Fred Hollows:</label>
+                <select class="form-select" id="Fred Hollows" name="Fred Hollows" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="MS QLD" class="form-label">MS QLD:</label>
+                <select class="form-select" id="MS QLD" name="MS QLD" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Never">Never</option>
+                    <option value="Possibly">Possibly</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Web Form Link" class="form-label">Web Form Link:</label>
+                <textarea class="form-control" id="Web Form Link" name="Web Form Link" required></textarea>
+            </div>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <div class="button-container">
+                
+                <button type="submit">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              >
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                  fill="currentColor"
+                                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                  ></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Send</span>
+                </button>
+                <button id="delete-button" class="button" type="button">
+                    <span class="button__text">Delete</span>
+                    <span class="button__icon"><svg class="svg" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><line style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" x1="80" x2="432" y1="112" y2="112"></line><path d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="256" x2="256" y1="176" y2="400"></line><line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="184" x2="192" y1="176" y2="400"></line><line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="328" x2="320" y1="176" y2="400"></line></svg></span>
+                </button>
+            </div>
+        </form>
+    </main>
+    <Footer></Footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Form Submission Script -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw4WGRXLxSZpojliH8ZecP_30vvrPipoGm0SldgScCx02DrYP7YrK3bvUGcuqD7-SNy-g/exec';
+        const form = document.forms['contact-form'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => response.json())
+                .then(data => {
+                    if(data.result === 'success') {
+                        alert('Form submitted successfully!');
+                    } else {
+                        alert('Form submission failed!');
+                    }
+                })
+                .catch(error => alert('Error: ' + error.message));
+        });
+        document.getElementById('delete-button').addEventListener('click', function() {
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+</body>
+</html>
