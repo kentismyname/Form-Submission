@@ -147,7 +147,7 @@
         <form id="contact-form">
             <div class="mb-3">
                 <label for="name" class="form-label">Agent Name:</label>
-                <input type="text" class="form-control" id="name" name="Agent Name" >
+                <input type="text" class="form-control" id="name" name="Agent Name" required>
             </div>
             <div class="mb-3">
                 <label for="disposition" class="form-label">DISPOSITION:</label>
@@ -427,6 +427,7 @@
                 .then(data => {
                     if(data.result === 'success') {
                         alert('Form submitted successfully!');
+                        document.getElementById('contact-form').reset();
                     } else {
                         alert('Form submission failed!');
                     }
