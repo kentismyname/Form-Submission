@@ -421,7 +421,7 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxI-8Zbhbz1-w1Vjb6Au8vIauG-JvCOckkzTj3vc4SeHGlWE6O8bZjDbKdbKUYZhXXdUg/exec';
         const form = document.forms['contact-form'];
 
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', e => { 
             e.preventDefault();
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => response.json())
