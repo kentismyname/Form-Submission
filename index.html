@@ -144,42 +144,53 @@
           }
 
         /* Custom Alert Styles */
-        #customAlert {
-            display: none;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-    
-        #customAlert .alertBox {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 300px;
-            width: 100%;
-        }
-    
-        #customAlert .alertBox p {
-            font-size: 24px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-    
-        #customAlert .alertBox button {
-            background: royalblue;
-            color: white;
-            padding: 10px 20px;
-            margin-left: 70px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }  
+    #customAlert {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+  
+      #customAlert .alertBox {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 300px;
+        width: 100%;
+        position: relative;
+      }
+  
+      #customAlert .alertBox p {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+  
+      #customAlert .alertBox button {
+        background: royalblue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+  
+      #closeButton {
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 5px 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
 
           
     </style>
@@ -463,6 +474,7 @@
     <div class="alertBox">
       <p id="alertMessage">Nice 1! Labyu<i class="fa-light fa-heart"></i></p>
       <button id="alertOkButton">Labyutoo</button>
+      <button id="closeButton">close</button>
     </div>
   </div>
 
@@ -473,6 +485,7 @@
     const customAlert = document.getElementById('customAlert');
     const alertMessage = document.getElementById('alertMessage');
     const alertOkButton = document.getElementById('alertOkButton');
+    const closeButton = document.getElementById('closeButton');
 
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -506,6 +519,26 @@
     document.getElementById('delete-button').addEventListener('click', function () {
       form.reset();
     });
+
+    function moveCloseButton() {
+      const alertBox = closeButton.parentElement;
+      const alertBoxRect = alertBox.getBoundingClientRect();
+      const closeButtonRect = closeButton.getBoundingClientRect();
+
+      let offsetX, offsetY;
+      do {
+        offsetX = Math.random() * (alertBoxRect.width - closeButtonRect.width);
+        offsetY = Math.random() * (alertBoxRect.height - closeButtonRect.height);
+      } while (
+        Math.abs(offsetX - closeButton.offsetLeft) < closeButtonRect.width &&
+        Math.abs(offsetY - closeButton.offsetTop) < closeButtonRect.height
+      );
+
+      closeButton.style.top = `${offsetY}px`;
+      closeButton.style.left = `${offsetX}px`;
+    }
+
+    closeButton.addEventListener('mouseover', moveCloseButton);
   </script>
 </body>
 </html>
