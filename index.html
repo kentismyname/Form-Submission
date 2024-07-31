@@ -488,29 +488,30 @@
     const closeButton = document.getElementById('closeButton');
 
     form.addEventListener('submit', e => {
-      e.preventDefault();
-      sendButton.disabled = true; // Disable the button
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => response.json())
-        .then(data => {
-          if (data.result === 'success') {
-            alertMessage.textContent = 'Nice 1! Labyu';
-            customAlert.style.display = 'flex';
-            form.reset();
-          } else {
-            alert('Form submission failed!');
-          }
-          setTimeout(() => {
-            sendButton.disabled = false; // Re-enable the button after 5 seconds
-          }, 5000);
-        })
-        .catch(error => {
-          alert('Error: ' + error.message);
-          setTimeout(() => {
-            sendButton.disabled = false; // Re-enable the button after 5 seconds
-          }, 5000);
-        });
+        e.preventDefault();
+        sendButton.disabled = true; // Disable the button
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    alertMessage.textContent = 'Nice 1! Labyu';
+                    customAlert.style.display = 'flex';
+                    form.reset();
+                } else {
+                    alert('Form submission failed!');
+                }
+                setTimeout(() => {
+                    sendButton.disabled = false; // Re-enable the button after 5 seconds
+                }, 5000);
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+                setTimeout(() => {
+                    sendButton.disabled = false; // Re-enable the button after 5 seconds
+                }, 5000);
+            });
     });
+
     // Function to update Blooms Triage 2 based on Blooms 1 to Blooms 5
     function updateBloomsTriage2() {
         const bloomsIds = ['Blooms 1', 'Blooms 2', 'Blooms 3', 'Blooms 4', 'Blooms 5'];
@@ -531,8 +532,22 @@
         }
     }
 
-    // Initial call to set the correct state on page load
+    // Function to update MS QLD based on State value
+    function updateMSQLD() {
+        const stateSelect = document.getElementById('State'); // Assuming the ID of the state select is 'state'
+        const msQLDSelect = document.getElementById('MS QLD');
+        const allowedStates = ['qld', 'ql', 'queensland'];
+
+        if (allowedStates.includes(stateSelect.value.trim().toLowerCase())) {
+            msQLDSelect.disabled = false;
+        } else {
+            msQLDSelect.disabled = true;
+        }
+    }
+
+    // Initial calls to set the correct state on page load
     updateBloomsTriage2();
+    updateMSQLD(); // Ensure MS QLD is disabled on page load
 
     // Add event listeners to Blooms 1 to Blooms 5 to update Blooms Triage 2 when they change
     const bloomsIds = ['Blooms 1', 'Blooms 2', 'Blooms 3', 'Blooms 4', 'Blooms 5'];
@@ -540,12 +555,15 @@
         document.getElementById(id).addEventListener('change', updateBloomsTriage2);
     });
 
+    // Add event listener to the state select to update MS QLD when it changes
+    document.getElementById('State').addEventListener('change', updateMSQLD);
+
     // Disabling the Children Charity select based on age
     document.getElementById('age').addEventListener('change', function() {
         const ageSelect = document.getElementById('age');
         const charitySelectIds = ['NHC 1','NHC 2','Health Deals 1','Health Deals 2','Blooms Triage 2', 'Blooms 1','Blooms 2','Blooms 3','Blooms 4','Blooms 5'];
-        const commercialsSelectedIds = ['Children Charity', 'Cancer Charity','MS QLD','Fred Hollows']
-        
+        const commercialsSelectedIds = ['Children Charity', 'Cancer Charity','MS QLD','Fred Hollows'];
+
         charitySelectIds.forEach(id => {
             const charitySelect = document.getElementById(id);
             if (ageSelect.value === '30-34' || ageSelect.value === '35-39') {
@@ -555,6 +573,7 @@
                 charitySelect.disabled = false;
             }
         });
+
         commercialsSelectedIds.forEach(id => {
             const commercialSelect = document.getElementById(id);
             if (ageSelect.value === '80-84' || ageSelect.value === '85+') {
@@ -565,10 +584,11 @@
             }
         });
     });
+
     document.getElementById('NHC 1').addEventListener('change', function() {
         const nhcSelect = document.getElementById('NHC 1');
         const nhc1SelectIds = ['NHC 2'];
-        
+
         nhc1SelectIds.forEach(id => {
             const nhc1Select = document.getElementById(id);
             if (nhcSelect.value === '8' || nhcSelect.value === '9' || nhcSelect.value === '10') {
@@ -578,37 +598,37 @@
                 nhc1Select.disabled = false;
             }
         });
-        
-        
     });
-    
+
     alertOkButton.addEventListener('click', () => {
-      customAlert.style.display = 'none';
+        customAlert.style.display = 'none';
     });
 
     document.getElementById('delete-button').addEventListener('click', function () {
-      form.reset();
+        form.reset();
     });
 
     function moveCloseButton() {
-      const alertBox = closeButton.parentElement;
-      const alertBoxRect = alertBox.getBoundingClientRect();
-      const closeButtonRect = closeButton.getBoundingClientRect();
+        const alertBox = closeButton.parentElement;
+        const alertBoxRect = alertBox.getBoundingClientRect();
+        const closeButtonRect = closeButton.getBoundingClientRect();
 
-      let offsetX, offsetY;
-      do {
-        offsetX = Math.random() * (alertBoxRect.width - closeButtonRect.width);
-        offsetY = Math.random() * (alertBoxRect.height - closeButtonRect.height);
-      } while (
-        Math.abs(offsetX - closeButton.offsetLeft) < closeButtonRect.width &&
-        Math.abs(offsetY - closeButton.offsetTop) < closeButtonRect.height
-      );
+        let offsetX, offsetY;
+        do {
+            offsetX = Math.random() * (alertBoxRect.width - closeButtonRect.width);
+            offsetY = Math.random() * (alertBoxRect.height - closeButtonRect.height);
+        } while (
+            Math.abs(offsetX - closeButton.offsetLeft) < closeButtonRect.width &&
+            Math.abs(offsetY - closeButton.offsetTop) < closeButtonRect.height
+        );
 
-      closeButton.style.top = `${offsetY}px`;
-      closeButton.style.left = `${offsetX}px`;
+        closeButton.style.top = `${offsetY}px`;
+        closeButton.style.left = `${offsetX}px`;
     }
 
     closeButton.addEventListener('mouseover', moveCloseButton);
-  </script>
+</script>
+
+
 </body>
 </html>
