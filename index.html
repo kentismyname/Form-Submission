@@ -13,7 +13,7 @@
             margin: 0;
         }
         .full-height {
-            height: 300vh;
+            height: 330vh;
         }
         .form-label {
             font-weight: bold;
@@ -207,25 +207,32 @@
                 <input type="text" class="form-control" id="name" name="Agent Name" required>
             </div>
             <div class="mb-3">
-                <label for="disposition" class="form-label">DISPOSITION:</label>
-                <select class="form-select" id="disposition" name="DISPOSITION"  required>
-                    <option value="">Select Disposition</option>
-                    <option value="CS">CS</option>
-                    <option value="PCS">PCS</option>
-                    <option value="NCS">NCS</option>
-                </select>
-            </div>
-            <div class="mb-3">
                 <label for="Permanent in AUS" class="form-label">Permanent in AUS:</label>
                 <input type="text" class="form-control" id="Permanent in AUS" name="Permanent in AUS" >
             </div>
             <div class="mb-3">
-                <label for="First name" class="form-label">First Name:</label>
-                <input type="text" class="form-control" id="First name" name="First Name" >
+                <label for="Postcode" class="form-label">Postcode:</label>
+                <input type="text" class="form-control" id="Postcode" name="Postcode" >
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Address:</label>
+                <textarea class="form-control" id="Address" name="Address" ></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="State" class="form-label">State:</label>
+                <textarea class="form-control" id="State" name="State" ></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="City/Suburb" class="form-label">City/Suburb:</label>
+                <textarea class="form-control" id="City/Suburb" name="City/Suburb" ></textarea>
             </div>
             <div class="mb-3">
                 <label for="Last name" class="form-label">Last Name:</label>
                 <input type="text" class="form-control" id="Last name" name="Last Name" >
+            </div>
+            <div class="mb-3">
+                <label for="First name" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="First name" name="First Name" >
             </div>
             <div class="mb-3">
                 <label for="Age" class="form-label">Age:</label>
@@ -248,26 +255,6 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="Postcode" class="form-label">Postcode:</label>
-                <input type="text" class="form-control" id="Postcode" name="Postcode" >
-            </div>
-            <div class="mb-3">
-                <label for="Address" class="form-label">Address:</label>
-                <textarea class="form-control" id="Address" name="Address" ></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="State" class="form-label">State:</label>
-                <textarea class="form-control" id="State" name="State" ></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="Tel. Number" class="form-label">Tel. Number:</label>
-                <textarea class="form-control" id="Tel. Number" name="Tel. Number"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="Email Address" class="form-label">Email Address:</label>
-                <input class="form-control" id="Email Address" name="Email Address">
-            </div>
-            <div class="mb-3">
                 <label for="Home Status" class="form-label">Home Status:</label>
                 <select class="form-select" id="Home Status" name="Home Status" >
                     <option value="">Select</option>
@@ -287,6 +274,14 @@
                     <option value="Pensioner">Pensioner</option>
                     <option value="Retired">Retired</option>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="Tel. Number" class="form-label">Tel. Number:</label>
+                <textarea class="form-control" id="Tel. Number" name="Tel. Number"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="Email Address" class="form-label">Email Address:</label>
+                <input class="form-control" id="Email Address" name="Email Address">
             </div>
             <div class="mb-3">
                 <label for="NHC 1" class="form-label">NHC 1:</label>
@@ -351,8 +346,7 @@
                 <select class="form-select" id="Blooms 1" name="Blooms 1" >
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="Never">Never</option>
-                    <option value="Possibly">Possibly</option>
+                    <option value="No">No</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -360,8 +354,7 @@
                 <select class="form-select" id="Blooms 2" name="Blooms 2" >
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="Never">Never</option>
-                    <option value="Possibly">Possibly</option>
+                    <option value="No">No</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -369,8 +362,7 @@
                 <select class="form-select" id="Blooms 3" name="Blooms 3" >
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="Never">Never</option>
-                    <option value="Possibly">Possibly</option>
+                    <option value="No">No</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -378,8 +370,7 @@
                 <select class="form-select" id="Blooms 4" name="Blooms 4" >
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="Never">Never</option>
-                    <option value="Possibly">Possibly</option>
+                    <option value="No">No</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -387,8 +378,7 @@
                 <select class="form-select" id="Blooms 5" name="Blooms 5" >
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="Never">Never</option>
-                    <option value="Possibly">Possibly</option>
+                    <option value="No">No</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -438,7 +428,16 @@
             </div>
             <div class="mb-3">
                 <label for="Web Form Link" class="form-label">Web Form Link:</label>
-                <textarea class="form-control" id="Web Form Link" name="Web Form Link" ></textarea>
+                <textarea class="form-control" id="Web Form Link" name="Web Form Link" required ></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="disposition" class="form-label">DISPOSITION:</label>
+                <select class="form-select" id="disposition" name="DISPOSITION"  required>
+                    <option value="">Select Disposition</option>
+                    <option value="CS">CS</option>
+                    <option value="PCS">PCS</option>
+                    <option value="NCS">NCS</option>
+                </select>
             </div>
             <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
             <div class="button-container">
@@ -452,12 +451,12 @@
                               width="24"
                               height="24"
                               >
-                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                <path
+                              <path fill="none" d="M0 0h24v24H0z"></path>
+                              <path
                                   fill="currentColor"
                                   d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
                                   ></path>
-                            </svg>
+                                </svg>
                         </div>
                     </div>
                     <span>Send</span>
@@ -470,14 +469,14 @@
         </form>
     </main>
     <Footer></Footer>
-
+    
     <!-- Bootstrap JS Bundle with Popper -->
-     <!-- Custom Alert Dialog -->
-  <div id="customAlert">
-    <div class="alertBox">
-      <p id="alertMessage">Nice 1! Labyu<i class="fa-light fa-heart"></i></p>
-      <button id="alertOkButton">Labyutoo</button>
-      <button id="closeButton">close</button>
+    <!-- Custom Alert Dialog -->
+    <div id="customAlert">
+        <div class="alertBox">
+            <p id="alertMessage">Nice 1! Labyu<i class="fa-light fa-heart"></i></p>
+            <button id="alertOkButton">Labyutoo</button>
+            <button id="closeButton">close</button>
     </div>
   </div>
 
@@ -514,7 +513,77 @@
           }, 5000);
         });
     });
+    // Function to update Blooms Triage 2 based on Blooms 1 to Blooms 5
+    function updateBloomsTriage2() {
+        const bloomsIds = ['Blooms 1', 'Blooms 2', 'Blooms 3', 'Blooms 4', 'Blooms 5'];
+        const bloomsTriage2 = document.getElementById('Blooms Triage 2');
+        let yesCount = 0;
 
+        bloomsIds.forEach(id => {
+            const bloomSelect = document.getElementById(id);
+            if (bloomSelect.value === 'Yes') {
+                yesCount++;
+            }
+        });
+
+        if (yesCount >= 2) { // Enable if there are 2 or more Yes
+            bloomsTriage2.disabled = false;
+        } else { // Disable if fewer than 2 Yes
+            bloomsTriage2.disabled = true;
+        }
+    }
+
+    // Initial call to set the correct state on page load
+    updateBloomsTriage2();
+
+    // Add event listeners to Blooms 1 to Blooms 5 to update Blooms Triage 2 when they change
+    const bloomsIds = ['Blooms 1', 'Blooms 2', 'Blooms 3', 'Blooms 4', 'Blooms 5'];
+    bloomsIds.forEach(id => {
+        document.getElementById(id).addEventListener('change', updateBloomsTriage2);
+    });
+
+    // Disabling the Children Charity select based on age
+    document.getElementById('age').addEventListener('change', function() {
+        const ageSelect = document.getElementById('age');
+        const charitySelectIds = ['Children Charity', 'Cancer Charity','MS QLD','Fred Hollows'];
+        const commercialsSelectedIds = ['NHC 1','NHC 2','Health Deals 1','Health Deals 2','Blooms Triage 2', 'Blooms 1','Blooms 2','Blooms 3','Blooms 4','Blooms 5']
+        
+        charitySelectIds.forEach(id => {
+            const charitySelect = document.getElementById(id);
+            if (ageSelect.value === '30-34' || ageSelect.value === '35-39') {
+                charitySelect.value = "";
+                charitySelect.disabled = true;
+            } else {
+                charitySelect.disabled = false;
+            }
+        });
+        commercialsSelectedIds.forEach(id => {
+            const commercialSelect = document.getElementById(id);
+            if (ageSelect.value === '80-84' || ageSelect.value === '85+') {
+                commercialSelect.value = "";
+                commercialSelect.disabled = true;
+            } else {
+                commercialSelect.disabled = false;
+            }
+        });
+    });
+    document.getElementById('NHC 1').addEventListener('change', function() {
+        const nhcSelect = document.getElementById('NHC 1');
+        const nhc1SelectIds = ['NHC 2'];
+        
+        nhc1SelectIds.forEach(id => {
+            const nhc1Select = document.getElementById(id);
+            if (nhcSelect.value === '8' || nhcSelect.value === '9' || nhcSelect.value === '10') {
+                nhc1Select.value = "";
+                nhc1Select.disabled = true;
+            } else {
+                nhc1Select.disabled = false;
+            }
+        });
+        
+        
+    });
+    
     alertOkButton.addEventListener('click', () => {
       customAlert.style.display = 'none';
     });
