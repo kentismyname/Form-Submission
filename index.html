@@ -233,7 +233,17 @@
             </div>
             <div class="mb-3">
                 <label for="State" class="form-label">State:</label>
-                <textarea class="form-control" id="State" name="State" ></textarea>
+                <select class="form-select" id="State" name="State" >
+                    <option value="">Select</option>
+                    <option value="NSW">(NSW) New South Wales</option>
+                    <option value="VIC">(VIC) Victoria</option>
+                    <option value="QLD">(QLD) Queensland</option>
+                    <option value="SA">(SA) South Australia</option>
+                    <option value="WA">(WA) Western Australia</option>
+                    <option value="TAS">(TAS) Tasmania</option>
+                    <option value="NT">(NT) Northern Territory</option>
+                    <option value="ACT">(ACT) Australian Capital Territory</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="City/Suburb" class="form-label">City/Suburb:</label>
@@ -241,15 +251,15 @@
             </div>
             <div class="mb-3">
                 <label for="Last name" class="form-label">Last Name:</label>
-                <input type="text" class="form-control" id="Last name" name="Last Name" >
+                <input type="text" class="form-control" id="Last name" name="Last Name" required >
             </div>
             <div class="mb-3">
                 <label for="First name" class="form-label">First Name:</label>
-                <input type="text" class="form-control" id="First name" name="First Name" >
+                <input type="text" class="form-control" id="First name" name="First Name" required >
             </div>
             <div class="mb-3">
                 <label for="Age" class="form-label">Age:</label>
-                <select class="form-select" id="age" name="Age" >
+                <select class="form-select" id="age" name="Age" required >
                     <option value="">Select</option>
                     <option value="30-34">30-34</option>
                     <option value="35-39">35-39</option>
@@ -580,7 +590,7 @@
 
         charitySelectIds.forEach(id => {
             const charitySelect = document.getElementById(id);
-            if (ageSelect.value === '30-34' || ageSelect.value === '35-39') {
+            if (ageSelect.value === '30-34' || ageSelect.value === '35-39' || ageSelect.value === '85+') {
                 charitySelect.value = "";
                 charitySelect.disabled = true;
             } else {
